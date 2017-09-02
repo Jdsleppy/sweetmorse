@@ -5,9 +5,24 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-# Get the long description
-with open(path.join(here, 'pypi.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+long_description = """sweetmorse
+----------
+
+Morse code tools from read to write, analog to digital.
+
+.. image:: https://www.travis-ci.org/Jdsleppy/sweetmorse.svg?branch=master
+    :target: https://www.travis-ci.org/Jdsleppy/sweetmorse
+
+Compatibility
+-------------
+
+Targets Python3, tested against against Python 3.3-3.6.
+
+More info
+---------
+
+See a crash course at https://github.com/Jdsleppy/sweetmorse
+"""
 
 setup(
     name='sweetmorse',
@@ -15,7 +30,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.1.6',
+    version='0.1.7',
 
     description='Morse code tools from read to write, analog to digital',
     long_description=long_description,
