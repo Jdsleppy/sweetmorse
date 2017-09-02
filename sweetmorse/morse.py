@@ -36,7 +36,7 @@ class Morse(object):
                 'Value must be a string.  Given: {}'.format(type(value))
             )
 
-        words = value.split(c.HUMAN_READABLE_WORD_GAP)
+        words = value.strip().split(c.HUMAN_READABLE_WORD_GAP)
 
         distinct_characters = set(
             itertools.chain(
@@ -87,8 +87,10 @@ class Morse(object):
                 'Value must be a string.  Given: {}'.format(type(value))
             )
 
+        processed_value = value.strip()
+
         # Do we only have 0 and 1?
-        distinct_values = set(value)
+        distinct_values = set(processed_value)
         problem_values = distinct_values.difference({"0", "1"})
         if problem_values:
             raise ValueError(
@@ -106,7 +108,7 @@ class Morse(object):
             )
 
         # Do we have a valid sequence of 0 and 1?
-        words = value.split(c.BINARY_WORD_GAP)
+        words = processed_value.split(c.BINARY_WORD_GAP)
         distinct_characters = set(
             itertools.chain(
                 char

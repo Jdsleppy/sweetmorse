@@ -67,6 +67,19 @@ def test_sos_from_all_formats():
     ).plain_text == "SOS"
 
 
+def test_sos_from_all_formats_with_newline():
+    """Typical usage will terminate input with a newline.  Be ready!"""
+    assert Morse.from_plain_text("SOS\n").plain_text == "SOS"
+
+    assert Morse.from_human_readable(
+        "... ___ ...\n"
+    ).plain_text == "SOS"
+
+    assert Morse.from_binary(
+        "101010001110111011100010101\n"
+    ).plain_text == "SOS"
+
+
 @given(text(alphabet=list(c.PLAIN_TEXT_ALPHABET)))
 @example('O  O')
 def test_there_and_back_plain_text(value):
