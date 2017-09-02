@@ -339,7 +339,7 @@ class Morse(object):
         )
 
 
-if __name__ == "__main__":
+def main():
     import argparse
     import sys
 
@@ -387,3 +387,7 @@ if __name__ == "__main__":
         if args.to_format == HUMAN_READABLE
         else morse.binary
     )
+
+
+if __name__ == "__main__":
+    main()
