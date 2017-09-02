@@ -41,12 +41,14 @@ def main():
         else Morse.from_binary(input_str)
     )
 
-    sys.stdout.write(
+    print(
         morse.plain_text
         if args.to_format == c.PLAIN
-        else morse.human_readable
+        else
+        morse.human_readable
         if args.to_format == c.HUMAN_READABLE
-        else morse.binary
+        else
+        morse.binary
     )
 
 

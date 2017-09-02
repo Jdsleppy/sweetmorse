@@ -24,7 +24,7 @@ def test_sos_from_all_formats():
     ).plain_text == "SOS"
 
 
-@given(text(alphabet=c.PLAIN_TEXT_ALPHABET))
+@given(text(alphabet=list(c.PLAIN_TEXT_ALPHABET)))
 @example('O  O')
 def test_there_and_back_plain_text(value):
     print(value)
@@ -42,7 +42,7 @@ def test_there_and_back_plain_text(value):
 @given(data())
 def test_there_and_back_human_readable(data):
     human_readable_chars = data.draw(
-        lists(elements=sampled_from(c.HUMAN_READABLE_CHARS))
+        lists(elements=sampled_from(list(c.HUMAN_READABLE_CHARS)))
     )
     separators = data.draw(
         lists(
@@ -81,7 +81,7 @@ def test_there_and_back_human_readable(data):
 @given(data())
 def test_there_and_back_binary(data):
     binary_chars = data.draw(
-        lists(elements=sampled_from(c.BINARY_CHARS))
+        lists(elements=sampled_from(list(c.BINARY_CHARS)))
     )
     separators = data.draw(
         lists(

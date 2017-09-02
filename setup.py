@@ -15,7 +15,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.1.2',
+    version='0.1.3',
 
     description='Morse code tools from read to write, analog to digital',
     long_description=long_description,
@@ -60,18 +60,6 @@ setup(
     install_requires=[],
 
     python_requires='~=3.0',
-
-    # List additional groups of dependencies here (e.g. development
-    # dependencies). You can install these using the following syntax,
-    # for example:
-    # $ pip install -e .test
-    extras_require={
-        'test': [
-            'pytest',
-            'hypothesis',
-            'flake8',
-        ]
-    },
 
     package_data={},
 
