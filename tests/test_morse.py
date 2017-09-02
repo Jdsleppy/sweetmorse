@@ -1,4 +1,5 @@
 import itertools
+import pytest
 
 from hypothesis import given, example
 from hypothesis.strategies import (
@@ -10,6 +11,48 @@ from hypothesis.strategies import (
 
 import sweetmorse.constants as c
 from sweetmorse.morse import Morse
+
+
+@pytest.mark.parametrize(
+    "one,other,are_equal",
+    (
+        (
+            Morse.from_plain_text("same text"),
+            Morse.from_plain_text("same text"),
+            True,
+        ),
+        (
+            Morse.from_plain_text("one text"),
+            Morse.from_plain_text("two text"),
+            False,
+        ),
+        (
+            Morse.from_plain_text("one text"),
+            None,
+            False,
+        ),
+        (
+            Morse.from_plain_text("one text"),
+            object(),
+            False,
+        ),
+    )
+)
+def test_equality(one, other, are_equal):
+    assert (one == other) == are_equal
+    assert (other == one) == are_equal
+
+
+def test_repr_makes_object():
+    """'...If at all possible, this should look like a valid Python expression
+    that could be used to recreate an object with the same value...'
+    https://docs.python.org/3.5/reference/datamodel.html#object.__repr__
+    """
+    m = Morse(["Hello,", "World!"])
+
+    from_repr = eval(repr(m))
+
+    assert from_repr == m
 
 
 def test_sos_from_all_formats():

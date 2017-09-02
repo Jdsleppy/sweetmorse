@@ -154,10 +154,16 @@ class Morse(object):
         return self.plain_text
 
     def __repr__(self):
-        return '{class_name}(\'{plain_text_words}\')'.format(
+        return '{class_name}({plain_text_words})'.format(
             class_name=self.__class__.__name__,
             plain_text_words=self.plain_text_words,
         )
+
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return repr(self) == repr(other)
+        else:
+            return NotImplemented
 
     @property
     def plain_text(self):
