@@ -27,7 +27,7 @@ You get an executable that reads from standard in and performs conversions betwe
 ```
 $ echo "Hello, Morse World!" | sweetmorse PLAIN HUMAN_READABLE > output.txt
 $ cat output.txt
-.... . ._.. ._.. ___ --..--   __ ___ ._. ... .   .__ ___ ._. ._.. _.. _._.__
+.... . ._.. ._.. ___ __..__   __ ___ ._. ... .   .__ ___ ._. ._.. _.. _._.__
 $ cat output.txt | sweetmorse HUMAN_READABLE BINARY
 101010100010001011101010001011101010001110111011100011101110101011101110000000111011100011101110111000101110100010101000100000001011101110001110111011100010111010001011101010001110101
 ```
@@ -35,7 +35,7 @@ $ cat output.txt | sweetmorse HUMAN_READABLE BINARY
 You can do the same with the main module, provided everything's in your `PYTHONPATH`:
 ```
 $ echo "Hello, Morse World!" | python sweetmorse/main.py PLAIN HUMAN_READABLE
-.... . ._.. ._.. ___ --..--   __ ___ ._. ... .   .__ ___ ._. ._.. _.. _._.__
+.... . ._.. ._.. ___ __..__   __ ___ ._. ... .   .__ ___ ._. ._.. _.. _._.__
 ```
 
 #### Go Analog
