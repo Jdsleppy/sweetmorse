@@ -10,7 +10,6 @@ Targets Python3, tested against against Python 3.3-3.6.
 
 ### Crash Course
 
-> Currently `sweetmorse` is only available on the testing version of PYPI.org.  As such, `pip install` won't work out-of-the-box just quite yet.
 ```
 $ pip install sweetmorse
 ```
