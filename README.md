@@ -8,9 +8,7 @@ Morse code tools from read to write, analog to digital.
 
 Targets Python3, tested against against Python 3.3-3.6.
 
-### Crash course
-
-See a crash course at https://github.com/Jdsleppy/sweetmorse
+### Crash Course
 
 > Currently `sweetmorse` is only available on the testing version of PYPI.org.  As such, `pip install` won't work out-of-the-box just quite yet.
 ```
@@ -40,3 +38,24 @@ You can do the same with the main module, provided everything's in your `PYTHONP
 $ echo "Hello, Morse World!" | python sweetmorse/main.py PLAIN HUMAN_READABLE
 .... . ._.. ._.. ___ --..--   __ ___ ._. ... .   .__ ___ ._. ._.. _.. _._.__
 ```
+
+#### Go Analog
+
+The `BINARY` format is perfect for sending and reading an analog Morse signal: step through the binary representation at a constant speed, sending a high signal for every `1` and a low signal for every `0`.
+
+See a proof of concept for interprocess communication with Morse code [here](/example)  (this just communicates between two GPIO pins on a Raspberry Pi in the same process, but use your imagination!).
+```
+$ python3 morse_demo.py
+Obtaining pin 21 for output...
+Obtaining pin 16 for input...
+
+Sending message: SOS
+Converted to binary: 101010001110111011100010101
+
+Sending message at 100 bits per second...
+
+Received binary: 101010001110111011100010101
+Received message: SOS
+```
+
+![Image of Raspberry Pi proof of concept](/example/circuit.jpg)
