@@ -6,7 +6,7 @@ Morse code tools from read to write, analog to digital.
 
 ### Compatibility
 
-Targets Python3, tested against against Python 3.3-3.6.
+Targets Python3, tested against against CPython 3.3-3.6 and PyPy 3.
 
 ### Crash Course
 
