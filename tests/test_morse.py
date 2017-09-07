@@ -22,6 +22,11 @@ from sweetmorse.morse import Morse
             True,
         ),
         (
+            Morse.from_plain_text("same text"),
+            Morse.from_human_readable("... ._ __ .   _ . _.._ _"),
+            True,
+        ),
+        (
             Morse.from_plain_text("one text"),
             Morse.from_plain_text("two text"),
             False,
@@ -173,3 +178,11 @@ def test_there_and_back_binary(data):
         morse.human_readable
     )
     assert morse_from_human_readable.binary == value
+
+
+def test_parse_finds_correct_format():
+    assert (
+        Morse.parse("SOS") ==
+        Morse.parse("... ___ ...") ==
+        Morse.parse("101010001110111011100010101")
+    )

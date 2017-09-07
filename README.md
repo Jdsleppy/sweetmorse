@@ -17,7 +17,10 @@ $ pip install sweetmorse
 Use it from code:
 ```python
 >>> from sweetmorse.morse import Morse
->>> m = Morse.from_plain_text("SOS")
+>>> # Parse plain text, human readable, and binary Morse formats
+>>> Morse.parse("SOS") == Morse.parse("... ___ ...") == Morse.parse("101010001110111011100010101")
+True
+>>> m = Morse.parse("SOS")
 >>> m.human_readable
 '... ___ ...'
 >>> m.binary

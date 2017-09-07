@@ -5,6 +5,47 @@ import sweetmorse.constants as c
 class Morse(object):
 
     @classmethod
+    def parse(cls, value):
+        if not isinstance(value, str):
+            raise TypeError(
+                'Value must be a string.  Given: {}'.format(type(value))
+            )
+
+        processed_value = value.strip().upper()
+        distinct_input_symbols = set(processed_value)
+
+        if all(
+            symbol in c.BINARY_SYMBOLS
+            for symbol in distinct_input_symbols
+        ):
+            return cls.from_binary(value)
+
+        elif all(
+            symbol in c.HUMAN_READABLE_SYMBOLS
+            for symbol in distinct_input_symbols
+        ):
+            return cls.from_human_readable(value)
+
+        elif all(
+            symbol in c.PLAIN_TEXT_SYMBOLS
+            for symbol in distinct_input_symbols
+        ):
+            return cls.from_plain_text(value)
+
+        else:
+            problem_symbols = (
+                distinct_input_symbols
+                .difference(c.BINARY_SYMBOLS)
+                .difference(c.HUMAN_READABLE_SYMBOLS)
+                .difference(c.PLAIN_TEXT_SYMBOLS)
+            )
+            raise ValueError(
+                'Characters given that do not belong to any format accepted'
+                'as input: {}'
+                .format(problem_symbols)
+            )
+
+    @classmethod
     def from_plain_text(cls, value):
         if not isinstance(value, str):
             raise TypeError(

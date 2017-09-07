@@ -1,0 +1,6 @@
+1.0.0:
+    * Initial release.  CLI, parse and write plain text, human readable, and
+    binary formats.
+
+1.1.0:
+    * `Morse.parse()` implemented.
